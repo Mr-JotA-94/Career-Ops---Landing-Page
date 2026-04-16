@@ -156,6 +156,35 @@ nav {
 }
 .btn-secondary:hover { color: var(--text); border-color: var(--muted); }
 
+/* ── OS installer buttons ───────────────────────────────────────────────── */
+.btn-os {
+  font-family: var(--sans); font-size: 12px; font-weight: 700;
+  padding: 13px 26px; border-radius: 4px;
+  border: 1px solid var(--border); cursor: pointer; text-decoration: none;
+  transition: all 0.2s; display: inline-flex; align-items: center; gap: 9px;
+  letter-spacing: 0.04em;
+}
+.btn-os-mac {
+  background: rgba(10,168,152,0.08); color: var(--bright);
+  border-color: rgba(10,168,152,0.3);
+}
+.btn-os-mac:hover {
+  background: rgba(10,168,152,0.18); border-color: rgba(10,168,152,0.6);
+  transform: translateY(-2px); box-shadow: 0 6px 24px rgba(10,168,152,0.2);
+}
+.btn-os-win {
+  background: rgba(10,168,152,0.08); color: var(--bright);
+  border-color: rgba(10,168,152,0.3);
+}
+.btn-os-win:hover {
+  background: rgba(10,168,152,0.18); border-color: rgba(10,168,152,0.6);
+  transform: translateY(-2px); box-shadow: 0 6px 24px rgba(10,168,152,0.2);
+}
+.btn-os-icon { font-size: 16px; line-height: 1; }
+.btn-os-text { display: flex; flex-direction: column; text-align: left; }
+.btn-os-label { font-size: 10px; font-weight: 400; opacity: 0.6; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; margin-bottom: 3px; }
+.btn-os-name  { font-size: 13px; font-weight: 700; line-height: 1; }
+
 /* Hero stat strip */
 .hero-stats {
   display: flex; gap: 40px; margin-top: 72px;
@@ -627,7 +656,22 @@ footer {
     </p>
 
     <div class="hero-actions">
-      <a href="#get-started" class="btn-primary">Download Free →</a>
+      <a href="https://github.com/Mr-JotA-94/career-ops/releases/latest/download/install-mac.sh"
+         download class="btn-os btn-os-mac">
+        <span class="btn-os-icon">🍎</span>
+        <span class="btn-os-text">
+          <span class="btn-os-label">Download for</span>
+          <span class="btn-os-name">macOS</span>
+        </span>
+      </a>
+      <a href="https://github.com/Mr-JotA-94/career-ops/releases/latest/download/install-windows.ps1"
+         download class="btn-os btn-os-win">
+        <span class="btn-os-icon">🪟</span>
+        <span class="btn-os-text">
+          <span class="btn-os-label">Download for</span>
+          <span class="btn-os-name">Windows</span>
+        </span>
+      </a>
       <a href="#tools" class="btn-secondary">See the tools</a>
     </div>
 
@@ -792,17 +836,17 @@ footer {
       <div class="flow-step reveal reveal-d1">
         <div class="flow-num">1</div>
         <div class="flow-title">Install & Setup</div>
-        <div class="flow-desc">Clone the repo, run <code>node server.mjs</code>, complete the 8-minute profile wizard. Done once.</div>
+        <div class="flow-desc">Download the installer for your OS, run it, then complete the profile wizard. Done once.</div>
       </div>
       <div class="flow-step reveal reveal-d2">
         <div class="flow-num">2</div>
-        <div class="flow-title">Analyse a Role</div>
-        <div class="flow-desc">Paste any job description into JD Analyser. Understand exactly what's being screened for before you apply.</div>
+        <div class="flow-title">Set Up Your Profile</div>
+        <div class="flow-desc">Upload your CV and fill in your experience once. Every tool draws from this — no re-entering details.</div>
       </div>
       <div class="flow-step reveal reveal-d3">
         <div class="flow-num">3</div>
-        <div class="flow-title">Tailor Your CV</div>
-        <div class="flow-desc">CV Tailor rewrites your profile for that specific role. Download a formatted .docx and send with confidence.</div>
+        <div class="flow-title">Analyse & Tailor Your CV</div>
+        <div class="flow-desc">Paste a job description — JD Analyser decodes what's being screened for, then CV Tailor rewrites your CV for that exact role. Download and send.</div>
       </div>
       <div class="flow-step reveal reveal-d4">
         <div class="flow-num">4</div>
@@ -841,7 +885,7 @@ footer {
 <!-- ── Get Started ───────────────────────────────────────────────────────── -->
 <section class="setup-section z" id="get-started">
   <div class="section-eyebrow reveal">Get started</div>
-  <h2 class="section-title reveal">Running in<br><em>under 10 minutes.</em></h2>
+  <h2 class="section-title reveal">Up and running.<br><em>In minutes.</em></h2>
 
   <div class="setup-grid">
     <div class="setup-steps reveal">
@@ -849,57 +893,65 @@ footer {
         <div class="setup-n">01</div>
         <div class="setup-step-content">
           <div class="setup-step-title">Get a free Groq API key</div>
-          <div class="setup-step-desc">Go to <strong>console.groq.com</strong> → API Keys. Free account, no credit card. Takes 2 minutes.</div>
+          <div class="setup-step-desc">Go to <strong>console.groq.com</strong> → API Keys. Free account, no credit card required.</div>
         </div>
       </div>
       <div class="setup-step">
         <div class="setup-n">02</div>
         <div class="setup-step-content">
-          <div class="setup-step-title">Clone the repository</div>
-          <div class="setup-step-desc">Download Career Ops from GitHub to your computer.</div>
-          <div class="setup-step-cmd">git clone https://github.com/Mr-JotA-94/career-ops.git</div>
+          <div class="setup-step-title">Download the installer</div>
+          <div class="setup-step-desc">Choose your operating system below. One file, one click.</div>
+          <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
+            <a href="https://github.com/Mr-JotA-94/career-ops/releases/latest/download/install-mac.sh"
+               download class="btn-os btn-os-mac" style="font-size:11px; padding:10px 18px;">
+              <span class="btn-os-icon" style="font-size:14px;">🍎</span>
+              <span class="btn-os-text">
+                <span class="btn-os-label">Download for</span>
+                <span class="btn-os-name" style="font-size:12px;">macOS</span>
+              </span>
+            </a>
+            <a href="https://github.com/Mr-JotA-94/career-ops/releases/latest/download/install-windows.ps1"
+               download class="btn-os btn-os-win" style="font-size:11px; padding:10px 18px;">
+              <span class="btn-os-icon" style="font-size:14px;">🪟</span>
+              <span class="btn-os-text">
+                <span class="btn-os-label">Download for</span>
+                <span class="btn-os-name" style="font-size:12px;">Windows</span>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
       <div class="setup-step">
         <div class="setup-n">03</div>
         <div class="setup-step-content">
-          <div class="setup-step-title">Install dependencies & start</div>
-          <div class="setup-step-desc">One install command, then run the server.</div>
-          <div class="setup-step-cmd">npm install &amp;&amp; node server.mjs</div>
+          <div class="setup-step-title">Run the installer</div>
+          <div class="setup-step-desc"><strong>Mac:</strong> Right-click the downloaded file → Open. <strong>Windows:</strong> Right-click → Run with PowerShell. Everything installs automatically.</div>
         </div>
       </div>
       <div class="setup-step">
         <div class="setup-n">04</div>
         <div class="setup-step-content">
           <div class="setup-step-title">Complete your profile</div>
-          <div class="setup-step-desc">Open <strong>localhost:3131</strong> in your browser. The setup wizard walks you through everything in about 8 minutes. Done once — every tool is personalised from here.</div>
+          <div class="setup-step-desc">Your browser opens automatically. The setup wizard walks you through everything. Done once — every tool is personalised from here.</div>
         </div>
       </div>
     </div>
 
     <div class="reveal reveal-d2">
       <div class="requirements-box">
-        <div class="req-title">Requirements</div>
+        <div class="req-title">What you need</div>
         <div class="req-item">
           <span class="req-dot">▸</span>
-          <div><strong>Node.js v18+</strong> Download free from nodejs.org</div>
+          <div><strong>A free Groq API key</strong> From console.groq.com — no credit card needed</div>
         </div>
         <div class="req-item">
           <span class="req-dot">▸</span>
-          <div><strong>A terminal / command prompt</strong> Built into macOS, Windows, and Linux</div>
-        </div>
-        <div class="req-item">
-          <span class="req-dot">▸</span>
-          <div><strong>A free Groq API key</strong> From console.groq.com — no credit card</div>
+          <div><strong>Mac or Windows computer</strong> The installer handles everything else automatically</div>
         </div>
         <div class="req-item">
           <span class="req-dot">▸</span>
           <div><strong>Your CV as a .docx file</strong> Optional — the wizard can import it automatically</div>
         </div>
-      </div>
-
-      <div class="disclaimer-note">
-        <strong>Honest note:</strong> Career Ops currently requires a terminal and Node.js. It is best suited to tech-comfortable professionals. A simpler setup experience is on the roadmap.
       </div>
     </div>
   </div>
@@ -1005,8 +1057,22 @@ footer {
     <h2 class="cta-title reveal">Stop sending into<br><em>the void.</em></h2>
     <p class="cta-sub reveal">You have the qualifications. Career Ops helps the right people actually see them.</p>
     <div class="cta-actions reveal">
-      <a href="https://github.com/Mr-JotA-94/career-ops" target="_blank" class="btn-primary">Get Career Ops Free →</a>
-      <a href="https://github.com/Mr-JotA-94/career-ops" target="_blank" class="btn-secondary">View on GitHub</a>
+      <a href="https://github.com/Mr-JotA-94/career-ops/releases/latest/download/install-mac.sh"
+         download class="btn-os btn-os-mac">
+        <span class="btn-os-icon">🍎</span>
+        <span class="btn-os-text">
+          <span class="btn-os-label">Download for</span>
+          <span class="btn-os-name">macOS</span>
+        </span>
+      </a>
+      <a href="https://github.com/Mr-JotA-94/career-ops/releases/latest/download/install-windows.ps1"
+         download class="btn-os btn-os-win">
+        <span class="btn-os-icon">🪟</span>
+        <span class="btn-os-text">
+          <span class="btn-os-label">Download for</span>
+          <span class="btn-os-name">Windows</span>
+        </span>
+      </a>
     </div>
   </div>
 </div>
